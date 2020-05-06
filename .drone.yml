@@ -50,13 +50,13 @@ steps:
 
   - name: notify
     image: drillster/drone-email
-    host: smtp.exmail.qq.com
-    port: 
-      - 465
-    skip_verify: true
-    username: yukaimin@jytpay.com
-    password: bZh8vXcrzc6METGJ
-    from: yukaimin@jytpay.com
+    settings:
+      host: smtp.exmail.qq.com
+      port: 
+        - 465
+      username: yukaimin@jytpay.com
+      password: bZh8vXcrzc6METGJ
+      from: yukaimin@jytpay.com
     subject: 我的愿望是世界和平
     body: 和平
     when:
