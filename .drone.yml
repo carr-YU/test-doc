@@ -30,6 +30,28 @@ steps:
       source: .vuepress/dist/*
       target: /root/doc
       secrets: [ rsync_key ]
+    when:
+        target:
+            - production
+        event: 
+            - promote
+  
+  - name: rsync staging
+    image: drillster/drone-rsync
+    environment:
+      RSYNC_KEY:
+        from_secret: rsync_key
+    settings:
+      hosts:
+        - 122.51.238.220
+      source: .vuepress/dist/*
+      target: /root/doc
+      secrets: [ rsync_key ]
+    when:
+        target:
+            - staging
+        event: 
+            - promote
   
   # - name: rsync staging
   #   image: drillster/drone-rsync
@@ -57,8 +79,7 @@ steps:
       username: yukaimin@jytpay.com
       password: bZh8vXcrzc6METGJ
       from: yukaimin@jytpay.com
-    subject: 我的愿望是世界和平
-    body: 和平
+      recipients: []
     when:
       status:
         - failure
