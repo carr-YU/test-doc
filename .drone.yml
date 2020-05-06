@@ -52,6 +52,7 @@ steps:
     image: drillster/drone-email
     host: smtp.exmail.qq.com
     port: 465
+    skip_verify: true
     username: yukaimin@jytpay.com
     password: bZh8vXcrzc6METGJ
     from: yukaimin@jytpay.com
