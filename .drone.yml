@@ -48,12 +48,16 @@ steps:
   #     event:
   #       - promote
 
-  # - name: notify
-  #   image: curlimages/curl
-  #   commands:
-  #     - |
-  #       curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=dbb3fa53-29f8-4394-bfa1-ecce009e8cbb' -H 'Content-Type: application/json' -d '{"msgtype": "text", "text": {"content": "ok"}}'
-  #   when:
-  #     status:
-  #       - failure
-  #       - success
+  - name: notify
+    image: drillster/drone-email
+    host: smtp.exmail.qq.com
+    port: 465
+    username: yukaimin@jytpay.com
+    password: bZh8vXcrzc6METGJ
+    from: yukaimin@jytpay.com
+    subject: 我的愿望是世界和平
+    body: 和平
+    when:
+      status:
+        - failure
+        - success
