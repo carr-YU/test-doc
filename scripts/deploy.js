@@ -81,22 +81,22 @@ const rsync = Rsync.build({
   shell: 'ssh -i /Users/calman/.ssh/yukaimin_rsa',
 });
 
-rsync.execute((err, code, cmd) => {
-  if(err == null && code == 0){
-    console.log(colors.green('<--------部署完成-------->'));
-  }else{
-    console.log(colors.red('<--------部署失败-------->'));
-    console.log(err,"[",err,"]");
-  }
-  //发送邮件
-  transporter.sendMail(mailOptions,(error,info)=>{
-    if(error){
-      return console.log(error);
-    }
-    console.log(`Message: ${info.messageId}`);
-    console.log(`sent: ${info.response}`);
-  });
-  console.log("执行脚本为：",cmd);
+// rsync.execute((err, code, cmd) => {
+//   if(err == null && code == 0){
+//     console.log(colors.green('<--------部署完成-------->'));
+//   }else{
+//     console.log(colors.red('<--------部署失败-------->'));
+//     console.log(err,"[",err,"]");
+//   }
+//   //发送邮件
+//   transporter.sendMail(mailOptions,(error,info)=>{
+//     if(error){
+//       return console.log(error);
+//     }
+//     console.log(`Message: ${info.messageId}`);
+//     console.log(`sent: ${info.response}`);
+//   });
+//   console.log("执行脚本为：",cmd);
   
-  // sendNotify('部署完成');
-});
+//   // sendNotify('部署完成');
+// });
