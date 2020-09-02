@@ -5,9 +5,10 @@ const colors = require('colors');
 const argv = require('yargs').argv;
 const nodemailer = require('nodemailer');
 
+const cons = "123"
 if(!argv.target){
   shelljs.echo(colors.red('--target 目标主机{calman_cloud}'));
-  shelljs.exit(1);
+  shelljs.exit(2);
 }
 const targetName = argv.target;
 
